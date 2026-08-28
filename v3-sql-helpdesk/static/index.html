@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI HelpDesk SQL</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">AI</div>
+        <div>
+          <strong>HelpDesk SQL</strong>
+          <span>Triagem inteligente</span>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-button active" data-page="dashboard">Dashboard</button>
+        <button class="nav-button" data-page="new-ticket">Novo chamado</button>
+        <button class="nav-button" data-page="open-tickets">Chamados abertos</button>
+        <button class="nav-button" data-page="reviews">Revisão IA</button>
+        <button class="nav-button" data-page="team">Equipe</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span>Execução local</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="page active" id="dashboard">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Visão geral</p>
+            <h1>Dashboard</h1>
+          </div>
+          <button class="secondary-button" id="refresh-dashboard">Atualizar</button>
+        </header>
+        <div class="metric-grid" id="metrics"></div>
+        <div class="panel">
+          <h2>Pipeline</h2>
+          <p>spaCy estrutura o chamado, o MiniLM calcula a similaridade e o Qwen é acionado apenas em casos ambíguos. Depois o SQLite define o departamento, responsável e fila real.</p>
+        </div>
+      </section>
+
+      <section class="page" id="new-ticket">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Atendimento</p>
+            <h1>Novo chamado</h1>
+          </div>
+        </header>
+
+        <div class="two-column">
+          <form class="panel form-panel" id="ticket-form">
+            <label>
+              Nome
+              <input id="requester-name" required minlength="2" placeholder="Seu nome">
+            </label>
+            <label>
+              E-mail
+              <input id="requester-email" type="email" placeholder="opcional">
+            </label>
+            <label>
+              Título
+              <input id="ticket-title" required minlength="3" placeholder="Ex.: Docker sem internet">
+            </label>
+            <label>
+              Descrição
+              <textarea id="ticket-description" required minlength="5" rows="7" placeholder="Descreva o problema e, se possível, informe local, equipamento ou sistema."></textarea>
+            </label>
+            <button class="primary-button" type="submit">Criar e analisar chamado</button>
+          </form>
+
+          <div class="panel result-panel" id="ticket-result">
+            <div class="empty-state">
+              <h2>Resultado da triagem</h2>
+              <p>Depois de criar um chamado, a confirmação, responsável e análise aparecem aqui.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="open-tickets">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Fila</p>
+            <h1>Chamados abertos</h1>
+          </div>
+          <button class="secondary-button" id="refresh-tickets">Atualizar</button>
+        </header>
+        <div id="open-ticket-list" class="ticket-list"></div>
+      </section>
+
+      <section class="page" id="reviews">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Qualidade</p>
+            <h1>Revisão IA</h1>
+          </div>
+          <button class="secondary-button" id="refresh-reviews">Atualizar</button>
+        </header>
+        <div class="review-stats" id="review-stats"></div>
+        <div id="review-container"></div>
+      </section>
+
+      <section class="page" id="team">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Roteamento</p>
+            <h1>Equipe</h1>
+          </div>
+          <button class="secondary-button" id="refresh-team">Atualizar</button>
+        </header>
+        <div id="team-list" class="team-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

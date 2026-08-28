@@ -1,0 +1,516 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e8edf7;
+  background: #0b1020;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #17213d 0, #0b1020 38%, #070b14 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 28px 20px;
+  border-right: 1px solid #25304a;
+  background: rgba(8, 13, 25, 0.92);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5d82ff, #6ce5c7);
+  color: #07101a;
+  font-weight: 800;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand span {
+  color: #8f9bb5;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+nav {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-button {
+  text-align: left;
+  border: 0;
+  color: #9eabc4;
+  background: transparent;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  background: #18223a;
+  color: #ffffff;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  color: #8f9bb5;
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #63dfaa;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(99, 223, 170, 0.8);
+}
+
+.content {
+  padding: 34px;
+  overflow: auto;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #6ce5c7;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 34px;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.panel,
+.metric-card,
+.ticket-card,
+.team-card {
+  border: 1px solid #26324d;
+  background: rgba(17, 24, 42, 0.86);
+  border-radius: 16px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+}
+
+.panel {
+  padding: 22px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.metric-card {
+  padding: 18px;
+}
+
+.metric-card span {
+  color: #8f9bb5;
+  font-size: 12px;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: 28px;
+  margin-top: 8px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+
+.form-panel {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #b7c1d6;
+  font-size: 13px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #33415f;
+  background: #0d1425;
+  color: #f5f7fb;
+  padding: 12px 13px;
+  border-radius: 10px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #688cff;
+  box-shadow: 0 0 0 3px rgba(104, 140, 255, 0.14);
+}
+
+.primary-button,
+.secondary-button,
+.resolve-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 15px;
+  font-weight: 700;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #688cff, #6ce5c7);
+  color: #07101a;
+}
+
+.secondary-button {
+  background: #1c2842;
+  color: #dbe3f4;
+}
+
+.resolve-button {
+  background: #1b6d57;
+  color: #eafff7;
+}
+
+.result-panel {
+  min-height: 430px;
+}
+
+.empty-state {
+  color: #8491ab;
+  min-height: 300px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.message-box {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(108, 229, 199, 0.09);
+  border: 1px solid rgba(108, 229, 199, 0.32);
+  line-height: 1.55;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.detail-item {
+  background: #0d1425;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.detail-item span {
+  color: #7f8da8;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.candidates {
+  margin-top: 18px;
+  display: grid;
+  gap: 9px;
+}
+
+.candidate {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 11px 12px;
+  background: #0d1425;
+  border-radius: 10px;
+}
+
+.ticket-list {
+  display: grid;
+  gap: 12px;
+}
+
+.ticket-card {
+  padding: 17px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+
+.ticket-meta,
+.team-meta {
+  color: #8f9bb5;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.ticket-card h3,
+.team-card h3 {
+  margin: 0 0 7px;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #1c2842;
+  color: #b9c7e4;
+  font-size: 11px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.team-card {
+  padding: 18px;
+}
+
+.team-load {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.error-box {
+  border-color: #8a3d4a;
+  background: rgba(160, 58, 73, 0.12);
+  color: #ffbdc6;
+}
+
+
+
+.review-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.review-card {
+  display: grid;
+  gap: 18px;
+}
+
+.review-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.35fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.review-heading h2 {
+  margin: 10px 0 8px;
+}
+
+.review-description {
+  color: #c3ccdc;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.predicted-category {
+  background: #0d1425;
+  border: 1px solid #33415f;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.predicted-category span,
+.review-context span {
+  color: #7f8da8;
+  font-size: 11px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.predicted-category strong {
+  font-size: 18px;
+}
+
+.review-context {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.review-context > div {
+  background: #0d1425;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.review-context p {
+  margin: 0;
+  color: #d9e0ed;
+  line-height: 1.45;
+}
+
+.review-actions,
+.review-form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.review-correct-button,
+.review-wrong-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 800;
+}
+
+.review-correct-button {
+  background: #1b6d57;
+  color: #eafff7;
+}
+
+.review-wrong-button {
+  background: #7b3341;
+  color: #fff0f2;
+}
+
+.review-correction-form {
+  display: grid;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid #25304a;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 1000px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid #25304a;
+  }
+
+  nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .metric-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .review-heading,
+  .review-context {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 22px 14px;
+  }
+
+  .metric-grid,
+  .team-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-card {
+    grid-template-columns: 1fr;
+  }
+}
